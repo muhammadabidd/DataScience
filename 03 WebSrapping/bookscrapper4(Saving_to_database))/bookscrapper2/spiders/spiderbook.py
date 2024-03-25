@@ -1,8 +1,8 @@
 import scrapy
-from bookscrapper3.items import Bookitem
 
-class Myspider1Spider(scrapy.Spider):
-    name = "myspider1"
+
+class SpiderbookSpider(scrapy.Spider):
+    name = "spiderbook"
     allowed_domains = ["books.toscrape.com"]
     start_urls = ["https://books.toscrape.com"]
 
@@ -31,14 +31,12 @@ class Myspider1Spider(scrapy.Spider):
 
     def parse_bookpage(self, response):
 
-        book_item = Bookitem()
+        yield {
+            'url' : response.url ,
+            'name' :  response.css(".product_main h1::text").get() ,
+            'price' : response.css(".product_main .price_color::text").get() ,
+            'stock' : response.css(".product_main .instock ::text").extract()[1].split()[2].replace("(", "") ,
+            'product_description' : response.xpath("//div[@id='product_description']//following-sibling::p//text()").get()
+        }
+        
 
-
-        book_item['url'] = response.url ,
-        book_item['name'] =  response.css(".product_main h1::text").get() ,
-        book_item['price'] = response.css(".product_main .price_color::text").get() ,
-        book_item['stock'] = response.css(".product_main .instock ::text").extract()[1].split()[2].replace("(", "") ,
-        book_item['product_description'] = response.xpath("//div[@id='product_description']//following-sibling::p//text()").get()
-
-
-        yield Bookitem
