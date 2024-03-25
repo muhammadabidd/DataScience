@@ -1,4 +1,4 @@
-# Scrapy settings for bookscrapper2 project
+# Scrapy settings for quotes project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,18 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "bookscrapper2"
+BOT_NAME = "quotes"
 
-SPIDER_MODULES = ["bookscrapper2.spiders"]
-NEWSPIDER_MODULE = "bookscrapper2.spiders"
-
-FEEDS = {
-    'datadata.json' : {'format' : 'json'}
-}
+SPIDER_MODULES = ["quotes.spiders"]
+NEWSPIDER_MODULE = "quotes.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "bookscrapper2 (+http://www.yourdomain.com)"
+#USER_AGENT = "quotes (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -49,13 +45,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    "bookscrapper2.middlewares.Bookscrapper2SpiderMiddleware": 543,
+#    "quotes.middlewares.QuotesSpiderMiddleware": 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    "bookscrapper2.middlewares.Bookscrapper2DownloaderMiddleware": 543,
+#    "quotes.middlewares.QuotesDownloaderMiddleware": 543,
 #}
 
 # Enable or disable extensions
@@ -67,7 +63,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    "bookscrapper2.pipelines.Bookscrapper2Pipeline": 300,
+#    "quotes.pipelines.QuotesPipeline": 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
