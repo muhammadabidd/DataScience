@@ -1,10 +1,10 @@
 import scrapy
 
 
-class QuotespiderSpider(scrapy.Spider):
-    name = "quotespider"
+class SpidercompletequoteSpider(scrapy.Spider):
+    name = "spidercompletequote"
     allowed_domains = ["quotes.toscrape.com"]
-    start_urls = ["https://quotes.toscrape.com/"]
+    start_urls = ["https://quotes.toscrape.com"]
 
     def parse(self, response):
 
@@ -24,5 +24,3 @@ class QuotespiderSpider(scrapy.Spider):
         nexpageurl = 'https://quotes.toscrape.com/' +  nextpage
 
         yield response.follow(nexpageurl, callback = self.parse)
-
-
