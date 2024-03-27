@@ -23,6 +23,15 @@ SCRAPEOPS_FAKE_USER_AGENT_ENABLED = True
 SCRAPEOPS_NUM_RESULTS = 50
 
 
+ROTATING_PROXY_LIST = [
+    '185.162.231.254:80',
+    '216.107.129.135:10180',
+    '119.197.0.17:4145',
+]
+
+# or you can do this way : 
+
+# ROTATING_PROXY_LIST_PATH = 'bookscrapper2/spiders/Free_Proxy_List.txt'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -65,10 +74,14 @@ ROBOTSTXT_OBEY = True
 DOWNLOADER_MIDDLEWARES = {
 #    "bookscrapper2.middlewares.Bookscrapper3DownloaderMiddleware": 543,
 #    'bookscrapper2.middlewares.ScrapeOpsFakeUserAgentMiddleware': 400,
-      'bookscrapper2.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 400
-
+      'bookscrapper2.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 400,
+    'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,             # rotating_proxies is module from scrapy-rotating-proxies
+    'rotating_proxies.middlewares.BanDetectionMiddleware': 620
    
 }
+
+
+
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
