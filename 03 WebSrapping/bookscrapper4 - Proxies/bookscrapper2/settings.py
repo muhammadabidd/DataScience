@@ -1,4 +1,4 @@
-# Scrapy settings for bookscrapper3 project
+# Scrapy settings for bookscrapper2 project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,21 +7,26 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "bookscrapper3"
+BOT_NAME = "bookscrapper2"
 
-SPIDER_MODULES = ["bookscrapper3.spiders"]
-NEWSPIDER_MODULE = "bookscrapper3.spiders"
+SPIDER_MODULES = ["bookscrapper2.spiders"]
+NEWSPIDER_MODULE = "bookscrapper2.spiders"
 
+# FEEDS = {
+#     'datadata.json' : {'format' : 'json'}
+# }
 
 SCRAPEOPS_API_KEY = '5cf1c833-d685-479f-aa0d-feb0c1e5bfd8'
+
 SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT = 'https://headers.scrapeops.io/v1/user-agents'
 SCRAPEOPS_FAKE_USER_AGENT_ENABLED = True
 SCRAPEOPS_NUM_RESULTS = 50
 
 
 
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "bookscrapper3 (+http://www.yourdomain.com)"
+#USER_AGENT = "bookscrapper2 (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -52,14 +57,17 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    "bookscrapper3.middlewares.Bookscrapper3SpiderMiddleware": 543,
+#    "bookscrapper2.middlewares.Bookscrapper2SpiderMiddleware": 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-#    "bookscrapper3.middlewares.Bookscrapper3DownloaderMiddleware": 543,
-   'bookscraper.middlewares.ScrapeOpsFakeUserAgentMiddleware': 400
+#    "bookscrapper2.middlewares.Bookscrapper3DownloaderMiddleware": 543,
+#    'bookscrapper2.middlewares.ScrapeOpsFakeUserAgentMiddleware': 400,
+      'bookscrapper2.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 400
+
+   
 }
 
 # Enable or disable extensions
@@ -71,7 +79,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    "bookscrapper3.pipelines.Bookscrapper3Pipeline": 300,
+#    "bookscrapper2.pipelines.Bookscrapper2Pipeline": 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
