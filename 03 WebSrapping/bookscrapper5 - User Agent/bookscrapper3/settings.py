@@ -13,6 +13,13 @@ SPIDER_MODULES = ["bookscrapper3.spiders"]
 NEWSPIDER_MODULE = "bookscrapper3.spiders"
 
 
+SCRAPEOPS_API_KEY = '5cf1c833-d685-479f-aa0d-feb0c1e5bfd8'
+SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT = 'https://headers.scrapeops.io/v1/user-agents'
+SCRAPEOPS_FAKE_USER_AGENT_ENABLED = True
+SCRAPEOPS_NUM_RESULTS = 50
+
+
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "bookscrapper3 (+http://www.yourdomain.com)"
 
@@ -50,9 +57,10 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
+DOWNLOADER_MIDDLEWARES = {
 #    "bookscrapper3.middlewares.Bookscrapper3DownloaderMiddleware": 543,
-#}
+   'bookscraper.middlewares.ScrapeOpsFakeUserAgentMiddleware': 400
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html

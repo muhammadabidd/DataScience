@@ -11,14 +11,14 @@ class Bookscrapper3Item(scrapy.Item):
     name = scrapy.Field()
     pass
 
-def sell(value):
-    return value * 10000
+# def sell(value):
+#     return value * 10000
 
 
 
-class Bookitem(scrapy.item):
-    url = scrapy.Field()
-    name = scrapy.Field()
-    price = scrapy.Field()
-    stock = scrapy.Field()        # Running sell function 
-    product_description = scrapy.Field()
+# class Bookitem(scrapy.item):
+#     url = scrapy.Field()
+#     name = scrapy.Field()
+#     price = scrapy.Field()
+#     stock = scrapy.Field()        # Running sell function 
+#     product_description = scrapy.Field()

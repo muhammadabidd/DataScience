@@ -1,8 +1,8 @@
 import scrapy
+# from bookscrapper3.items import Bookitem
 
-
-class SpiderbookSpider(scrapy.Spider):
-    name = "spiderbook"
+class Myspider1Spider(scrapy.Spider):
+    name = "myspider1"
     allowed_domains = ["books.toscrape.com"]
     start_urls = ["https://books.toscrape.com"]
 
@@ -38,5 +38,3 @@ class SpiderbookSpider(scrapy.Spider):
             'stock' : response.css(".product_main .instock ::text").extract()[1].split()[2].replace("(", "") ,
             'product_description' : response.xpath("//div[@id='product_description']//following-sibling::p//text()").get()
         }
-        
-
